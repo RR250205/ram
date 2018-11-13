@@ -1,0 +1,328 @@
+<div class="container-fluid dashboard">
+	<div class="row">
+		<div class="col-md-12 add-widget text-right">
+			<h2 class="title pull-left">
+				<i class="fa fa-file"></i>Sweatrate Report
+			</h2>
+
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<!-- END: Subheader -->
+			<div class="m-content">
+				<div class="m-portlet m-portlet--mobile">
+					<div class="m-portlet__body">
+						<!--begin: Search Form -->
+						<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+							<div class="row align-items-center">
+								<div class="col-xl-8 order-2 order-xl-1">
+									<div class="form-group m-form__group row align-items-center">
+										<div class="col-md-4">
+											<!-- <div class="m-input-icon m-input-icon--left">
+												<input type="text" class="form-control m-input" placeholder="Search..." id="generalSearch">
+												<span class="m-input-icon__icon m-input-icon__icon--left">
+													<span>
+														<i class="la la-search"></i>
+													</span>
+												</span>
+											</div> -->
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-4 order-1 order-xl-2 m--align-right">
+									<!-- <div class="m-separator m-separator--dashed d-xl-none"></div> -->
+								</div>
+							</div>
+						</div>
+						<!--end: Search Form -->
+						<!--begin: Datatable -->
+						<!-- <div class="m_datatable" id="ajax_data"></div> -->
+
+						<table class="table table-striped" [mfData]="data" #mfsr="mfDataTable" [mfRowsOnPage]="10">
+							<thead>
+								<tr>
+									<th style="width:4%">
+
+									</th>
+									<th style="width:15%">
+										<mfDefaultSorter by="athlete.first_name">
+											<span id="table_heading_color">Athlete</span>
+										</mfDefaultSorter>
+									</th>
+									<th style="width:15%">
+										<mfDefaultSorter by="preactivity.name">
+											<span id="table_heading_color"> Activity </span>
+										</mfDefaultSorter>
+									</th>
+									<th style="width:15%">
+										<mfDefaultSorter by="date">
+											<span id="table_heading_color">Date</span>
+										</mfDefaultSorter>
+									</th>
+									<th style="width:15%">
+										<mfDefaultSorter by="weight_loss">
+											<span id="table_heading_color">Weight Loss </span>
+										</mfDefaultSorter>
+									</th>
+									<th style="width:12%">
+										<mfDefaultSorter by="dehydration">
+											<span id="table_heading_color">Dehydration %</span>
+										</mfDefaultSorter>
+									</th>
+									<th style="width:12%">
+										<mfDefaultSorter by="sweatrate">
+											<span id="table_heading_color">Sweat Rate </span>
+										</mfDefaultSorter>
+									</th>
+									<th style="width:6%">
+										<mfDefaultSorter>
+											<span id="table_heading_color">Actions </span>
+										</mfDefaultSorter>
+									</th>
+									<th style="width:6%">
+
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr *ngFor="let item of mfsr.data; let i=index">
+									<td style="width:4%">
+
+									</td>
+									<td style="width:15%">
+										<div *ngIf="item.athlete!=null">{{item.athlete.first_name}}</div>
+										<div *ngIf="item.athlete==null">-</div>
+									</td>
+									<td style="width:15%">
+										<div *ngIf="item.preactivity!=null">{{item.preactivity.name}}</div>
+										<div *ngIf="item.preactivity==null">-</div>
+
+									</td>
+									<td style="width:15%">{{item.date}}</td>
+									<td style="width:15%">{{item.weight_loss}}</td>
+									<td style="width:12%">{{item.dehydration}}</td>
+									<td style="width:12%">{{item.sweatrate}}</td>
+									<td style="width:6%">
+										<!-- <a data-id="i' + item.id + '" class="m-portlet__nav-link btn m-btn m-btn--hover-primary m-btn--icon m-btn--icon-only m-btn--pill btn-activities-edit" title="Report" data-toggle="modal" href="#sweatrateReport" ><i class="la la-file"></i></a> -->
+										<a (click)="generateReportDraw(item.id)" class="m-portlet__nav-link btn m-btn m-btn--hover-primary m-btn--icon m-btn--icon-only m-btn--pill btn-activities-edit"
+										 title="Report" data-toggle="modal" href="#sweatrateReport">
+											<i class="la la-file"></i>
+										</a>
+									</td>
+									<td style="width:6%"></td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td colspan="4" style="border: 0px">
+										<mfBootstrapPaginator [rowsOnPageSet]="[    ]"></mfBootstrapPaginator>
+									</td>
+								</tr>
+							</tfoot>
+						</table>
+
+
+
+
+						<!--end: Datatable -->
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal fade bs-modal-lg" id="sweatrateReport" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<!-- <div class="row"> -->
+					<div class="col-xl-4 col-md-10">
+						<h4 class="modal-title">Sweatrate Report</h4>
+					</div>
+					<div class="col-xl-8 col-md-2">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+
+					</div>
+					<!-- </div> -->
+
+				</div>
+				<div class="modal-body">
+
+					<div class="row">
+						<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+						<!-- <div class="col-xl-2 col-md-1 col-lg-2 pre_act_athlete"> -->
+
+						<!-- <div *ngFor="let activity of activities.success_activities;let i = index;">
+										<div appBackHighlight [attr.data-forid]="i" [attr.data-id]="activity.id" [attr.data-athlete-id]="activity.athlete_id" [ngStyle]="{'backgroundColor': backgroundColors }" [ngClass]="{'blueBg': activity.id==currentActivityId}"
+											(click)="savePostActivity(activity.id, activity.athlete_id, i, $event)" class="m-widget3__user-img1">
+											<img class="m-widget3__img" src="{{activity.profile_picture}}" alt="" />
+										</div>
+									</div> -->
+
+						<div class="col-xl-10 col-md-10 co-lg-10  pre_act">
+							<div class="pre_act_space">
+								<div class="row athlete-name">
+									<div class="col-lg-12">
+										<h3 class="athlete_title"> {{activity.athlete_name}} </h3>
+									</div>
+								</div>
+								<div class="row ">
+									<div class="col-lg-12 col-xs-12">
+										<div class="row dehydration_area">
+											<div class="col-lg-11 col-xl-11 col-md-11">
+												<div class="m-portlet">
+													<div class="m-portlet__head">
+															<div class="m-portlet__head-caption">
+																	<div class="m-portlet__head-title" id="reportgraph">
+																		<h3 class="dehyd">Dehydration</h3>
+																		<div class="meters" id="power-gauge"></div>
+																		<div id="d">
+
+																		</div>
+																		<span *ngIf="this.outofRange">
+																		<div class="instruction">
+																			<div class="">
+																				<h5 *ngIf="activity.dehydration <0 ||activity.dehydration >5 else dehy" class="box" id="dehybox">
+																					<p class="dehydration-value">{{activity.dehydration | number:'.1-1'}}%</p>
+																				</h5>
+																				<ng-template #dehy>
+																				<h5 class="box" id="dehyboxrange">
+																					<p class="dehydration-value">{{activity.dehydration | number:'.1-1'}}%</p>
+																				</h5>
+																			</ng-template>
+																				<br/>
+																			</div>
+																			<br/>
+																		</div> 
+																		<h4 *ngIf="activity.dehydration <0 ||activity.dehydration >5 else outRange" id="outofrange">Out of Range</h4>
+																			<ng-template #outRange>
+																					<h4>&nbsp;</h4>
+																			</ng-template>
+																		</span>
+																	</div>
+																
+																</div>
+														<!-- <div class="m-portlet__head-caption">
+															<div class="m-portlet__head-title">
+																<h3 class="dehyd">Dehydration</h3>
+																<div class="meters" id="power-gauge"></div>
+																<div id="d">
+
+																</div>
+							
+																<div class="instruction">
+																		<p class="dehydration-value">{{activity.dehydration | number:'.1-1'}}%</p>
+																		<p>Dehydration on a scale from 1-5%</p>
+																		<p>if>5% scale changes 1-10 (and colours change)</p>
+																		<p>Exact dehydration in % (one decimal place, i.e. 2.2%)</p>
+																		<p>&nbsp;</p>
+																		<br/>
+																	</div>
+															</div>
+														</div> -->
+													</div>
+												</div>
+
+											</div>
+											<div class="col-xl-1 col-lg-1 col-md-1"></div>
+										</div>
+									</div>
+									<!-- <div class="row">
+										<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+											<div class="m-portlet meter">
+												<div class="m-portlet__head">
+													<div class="m-portlet__head-caption" style="padding-bottom: 10px;">
+														<div class="row">
+															<div class="col-md-3">
+																<h5>Dehydration</h5>
+															</div>
+															<div class="col-md-6" style="padding-right: 0px;	padding-left: 0px;">
+
+																<p>Dehydration on a scale from 1-5%</p>
+																<p>if>5% scale changes 1-10 (and colours change)</p>
+																<p>Exact dehydration in % (one decimal place, i.e. 2.2%)</p>
+															</div>
+															<div class="col-md-3">
+																<div class="pull-right">
+																	<h5 class="box">
+																		{{activity.dehydration | number:'.1-1'}}%
+
+																	</h5>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-xl-1 col-lg-1 col-md-2 col-sm-1 col-xs-1"></div>
+									</div> -->
+									<div class="row">
+											<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+												<div class="m-portlet meter">
+													<div class="m-portlet__head">
+														<div class="m-portlet__head-caption">
+															<div class="row">
+																<div class="col-md-8">
+																	<h4>Sweat Rate (L/H)</h4>
+																</div>
+																<div class="col-md-4">
+																	<div class="pull-right">
+																		<h3 class="box">
+																			{{activity.sweatrate | number:'.1-1'}} L/H
+																		</h3>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+										</div>
+									<div class="row">
+											<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+												<div class="m-portlet meter">
+													<div class="m-portlet__head">
+														<div class="m-portlet__head-caption">
+															<div class="row">
+																<div class="col-md-8">
+																	<h4 >Weight Loss</h4>
+																</div>
+																
+																<div class="col-md-4">
+																	<div class="pull-right">
+																		<h3 class="box">
+																			{{activity.weight_loss | number:'.1-1'}} KG
+																		</h3>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>	
+												</div>
+											</div>
+											<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+										</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+				</div>
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+
+
+</div>

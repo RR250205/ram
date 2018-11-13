@@ -1,0 +1,44 @@
+<div class="inviteUser">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<div class="row inviteUserBG">
+					<div class="col-md-2"></div>
+					<div class="col-md-8">
+						<h2 class="text-center inviteUserTitle">Sport Mangement</h2>
+						<div class="login-form">
+							<form (ngSubmit)="addSport(i.value)" #i="ngForm" action="" >
+								<div class="form-group m-form__group">
+									<div class="row">
+										<div class="col-md-3">
+											<label class="pad10">Sport Name</label>
+										</div>
+										<div class="col-md-10">
+											<input type="text" name="sport" class="form-control m-input" id="exampleInputEmail1" [(ngModel)]="model.sport" placeholder="Enter Sport">
+										</div>
+									</div>
+								</div>
+								<div class="form-group m-form__group">
+									<div class="row">
+										<div class="col-md-3">
+											<label class="pad10">Description</label>
+										</div>
+										<div class="col-md-10">
+											<input type="text" name="desc" class="form-control m-input" id="exampleInputEmail1" [(ngModel)]="model.desc" placeholder="Enter Description">
+										</div>
+									</div>
+								</div>
+								<div class="actions">
+									<button class="pull-right btn btn-info">Create New Sport
+										<i class="fa fa-football"></i>
+									</button>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

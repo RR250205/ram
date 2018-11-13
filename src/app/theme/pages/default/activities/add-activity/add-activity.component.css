@@ -1,0 +1,127 @@
+.meters{
+    margin-left: 40%;
+    /* min-height: 300px; */
+    min-height: 239px;
+}
+.meter{
+    background: url('/assets/images/sweatrate_stripe.png') no-repeat;
+    /* width: 616px; */
+    margin-top: 5%;
+    margin-left: 20px;
+    /* height: 70px; */
+    text-align: center;
+    padding: 10px 0px 0px 0px;
+}
+.dehyd{
+    color: orange;
+    margin-top: 20px;
+}
+.instruction{
+    color: orange;
+    text-align: left;
+    padding-bottom: 15px;
+    margin-top: -55px;
+}
+.m-portlet__head-caption{
+    color: white;
+    font-weight: bold;
+}
+h3.box{
+    font-size: 21px;    
+    border:2px solid white;
+    padding: 5px 10px;
+}
+.navButtons{
+    margin-top: 50px;
+}
+.buttonGaps{
+    margin-right: 30px;
+}
+.activePercent{
+    width: 50px;
+}
+.activity_name{
+    height: 5px;
+    margin-left: 60px;
+    margin-top: 10px;
+}
+div.input-group-prepend{
+    border-color:#ebedf2;
+    background-color: #f4f5f8;
+    color: #575962;
+    padding:5px 10px;
+}
+.wizard_numbers{
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+}
+.athlete-name{
+    margin: 0px 0px 0px 15px;
+}
+.activity-details{
+    margin: 0px 0px 0px 0px;
+}
+.dehydration_area{
+    margin: 15px 0px 0px 0px;
+
+}
+span#table_heading_color {
+    color: #575962;
+}
+th#firstheader {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#secondheader {
+    padding-left: 0px;
+}
+th#fourthheader {
+    text-align: center;
+}
+td .primary_sports{
+    padding-left: 20px;
+}
+th#thirdheader {
+    padding-left: 15px;
+}
+#dehybox{
+    float: right;
+    width: 65px;
+    color:red;
+    padding: 5px 4px;
+    border: 2px solid red;
+}
+#dehyboxrange{
+    float: right;
+    width: 65px;
+    color:black;
+    padding: 5px 4px;
+    border: 2px solid black;
+}
+#outofrange{
+    float: right;
+    margin-right: -10%;
+    color: red;
+}
+#reportgraph{
+    /* height: 50vh; */
+    display: table;
+    table-layout: fixed;
+    height: 100%;
+    margin-top: 7%;
+    margin-bottom: 7%;
+   
+}
+.activity-form{
+    color: #3f4047;
+    text-align: left;
+    font-weight: 400;
+    font-size: 1rem;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 30px;
+
+}
+
+:focus { outline: solid 1px #0a8cf0 } 

@@ -1,0 +1,29 @@
+.fa-asterisk:before{
+    font-size: 8px;
+}
+.athelets-form.row {
+    padding-top: 15px;
+    margin: 15px 0;
+}
+label.col-lg-2.col-form-label {
+    color: #3f4047;
+    text-align: right;
+    font-weight: 400;
+    font-size: 1rem;
+}
+.athelete-form{
+    color: #3f4047;
+    text-align: right;
+    font-weight: 400;
+    font-size: 1rem;
+    padding-left: 0px;
+    padding-right: 0px;
+
+}
+
+.col-form-label-athele{
+color: #3f4047;
+text-align: right;
+font-weight: 400;
+font-size: 1rem;
+}

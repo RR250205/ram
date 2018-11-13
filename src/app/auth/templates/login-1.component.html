@@ -1,0 +1,49 @@
+<div class="loginBG">
+	<div class="text-center">
+		<a href="http://fuelthecure.net" title="FUEL the CURE">
+			<img src="assets/images/SRC_logo.png" alt="Sweatrate" class="loginImage">
+		</a>
+	</div>
+	<div class="container ml20">
+		<div class="login">
+			<div class="login-screen">
+				<div class="app-title">
+					<h2>Log in</h2>
+				</div>
+				<div class="login-form">
+					<form (ngSubmit)="f.form.valid && signin()" #f="ngForm" class="m-login__form m-form" action="">
+						<ng-template #alertSignin></ng-template>
+						<div class="form-group m-form__group">
+							<input class="form-control m-input" type="text" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel"
+							 autocomplete="off">
+						</div>
+						<div class="form-group m-form__group">
+							<input class="form-control m-input m-login__form-input--last" type="password" placeholder="Password" name="password" [(ngModel)]="model.password"
+							 #password="ngModel">
+						</div>
+						<div class="row m-login__form-sub">
+							<div class="col m--align-left">
+								<label class="m-checkbox m-checkbox--focus">
+									<input type="checkbox"  name="rememberme" [(ngModel)]="model.rememberme" #rememberme="ngModel">
+									 Remember me
+									<span></span>
+								</label>
+							</div> 
+							<div class="col m--align-right">
+								<a href="javascript:;" routerLink="/forgetPassword" id="m_login_forget_password" class="m-link">
+									Forget Password?
+								</a>
+							</div>
+						</div>
+						<div class="m-login__form-action">
+							<button [disabled]="loading" [ngClass]="{'m-loader m-loader--right m-loader--light': loading}" id="m_login_signin_submit"
+							 class="btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--air pull-right">
+								Sign In
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

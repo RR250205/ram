@@ -1,0 +1,1127 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12 add-widget text-right">
+			<h2 class="title pull-left ml20">
+				<i class="fa fa-users"></i> Add New Activity</h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 col-xl-12">
+			<!-- END: Subheader -->
+			<div class="m-content">
+				<div class="m-portlet m-portlet--mobile">
+					<div class="m-portlet__body">
+						<div class="m-wizard m-wizard--2 m-wizard--success" id="m_wizard">
+
+							<!--begin: Form Wizard Head -->
+							<div class="m-wizard__head m-portlet__padding-x">
+								<!--begin: Form Wizard Progress -->
+								<div class="m-wizard__progress">
+									<div class="progress">
+										<div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</div>
+								<!--end: Form Wizard Progress -->
+								<!--begin: Form Wizard Nav -->
+								<div class="m-wizard__nav">
+									<div class="m-wizard__steps">
+										<div class="m-wizard__step m-wizard__step--current" data-wizard-target="#m_wizard_form_step_1">
+											<a href="#" [attr.data-wizard]="1" class="m-wizard__step-number" (click)="InitialState(preactivity,$event)">
+												<span class="wizard_numbers">
+													1
+													<!-- <i class="fa  flaticon-placeholder"></i> -->
+												</span>
+											</a>
+											<div class="m-wizard__step-info">
+												<div class="m-wizard__step-title">
+													Activity
+												</div>
+
+											</div>
+										</div>
+										<div class="m-wizard__step" data-wizard-target="#m_wizard_form_step_2">
+											<a href="#" [attr.data-wizard]="2" (click)="InitialState(preactivity,$event)" class="m-wizard__step-number">
+												<span class="wizard_numbers">
+													2
+													<!-- <i class="fa  flaticon-layers"></i> -->
+												</span>
+											</a>
+											<div class="m-wizard__step-info">
+												<div class="m-wizard__step-title">
+													Athletes
+												</div>
+											</div>
+										</div>
+										<div class="m-wizard__step" data-wizard-target="#m_wizard_form_step_3">
+											<a href="#" [attr.data-wizard]="3" (click)="InitialState(preactivity,$event)" class="m-wizard__step-number">
+												<span class="wizard_numbers">
+													3
+													<!-- <i class="fa flaticon-layers"></i> -->
+												</span>
+											</a>
+											<div class="m-wizard__step-info">
+												<div class="m-wizard__step-title">
+													Pre
+												</div>
+											</div>
+										</div>
+										<div class="m-wizard__step" data-wizard-target="#m_wizard_form_step_4">
+											<a href="#" (click)="InitialState(preactivity,$event)" class="m-wizard__step-number">
+												<span class="wizard_numbers">
+													4
+													<!-- <i class="fa  flaticon-layers"></i> -->
+												</span>
+											</a>
+											<div class="m-wizard__step-info">
+												<div class="m-wizard__step-title">
+													Post
+												</div>
+											</div>
+										</div>
+										<div class="m-wizard__step" data-wizard-target="#m_wizard_form_step_5">
+											<a href="#" [attr.data-wizard]="5" (click)="isgenReports(preactivity,$event)" class="m-wizard__step-number">
+												<span class="wizard_numbers">
+													5
+													<!-- <i class="fa  flaticon-layers"></i> -->
+												</span>
+											</a>
+											<div class="m-wizard__step-info">
+												<div class="m-wizard__step-title">
+													Report
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-12 col-md-12 col-xs-12">
+										<h3 class="activity_name">{{this.activity.activityName}}</h3>
+									</div>
+								</div>
+								<!--end: Form Wizard Nav -->
+							</div>
+							<div class="m-wizard__form">
+								<!--                 1) Use m-form--label-align-left class to alight the form input lables to the right -->
+								<!--     2) Use m-form--state class to highlight input control borders on form validation                 -->
+								<form novalidate class="m-form m-form--label-align-left- m-form--state-" (ngSubmit)="preactivity(preactivity)" #preactivity="ngForm"
+								 id="m_form">
+									<!--begin: Form Body -->
+									<div class="m-portlet__body">
+										<!--begin: Form Wizard Step 1-->
+										<div class="m-wizard__form-step m-wizard__form-step--current" id="m_wizard_form_step_1">
+											<div class="row" style="background-color: #d1ecfd;">
+												<div class="col-xl-1"></div>
+												<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+													<div class="m-form__section m-form__section--first">
+														<div class="m-form__heading">
+															<h2 class="m-form__heading-title">
+																Activity Details
+															</h2>
+														</div>
+														<div class="activity-form row">
+															<label class="col-lg-2 col-form-label">Activity Name *:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input type="text" required (ngModelChange)="modelChangedActivity($event)" class="form-control m-input" placeholder="Enter Activity Name"
+																	 name="activityName" [(ngModel)]="pre_activity.name" #activityName="ngModel">
+																</div>
+															</div>
+															<label class="col-lg-2 col-form-label">Date *:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input required  (ngModelChange)="modelChangedActivity($event)" type="date" class="form-control m-input" placeholder="Date" name="date"
+																	 [(ngModel)]="pre_activity.date" #date="ngModel">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text">
+																			<i class="fa fa-calendar"></i>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="activity-form row">
+															<label class="col-lg-2 col-form-label">Time *:</label>
+															<div class="col-lg-4">
+																<input required  (ngModelChange)="modelChangedActivity($event)" atp-time-picker type="time" value="20:55" class="form-control m-input"
+																 name="time" [(ngModel)]="pre_activity.time" #time="ngModel">
+															</div>
+															<!-- <div class="12hr-example col-lg-4">
+																	<input placeholder="12hr format (default settings)" aria-label="12hr format" [ngxTimepicker]="default" readonly>
+																	<ngx-material-timepicker #default></ngx-material-timepicker>
+															</div> -->
+															<label class="col-lg-2 col-form-label">Activity *:</label>
+															<div class="col-lg-4">
+																<select (ngModelChange)="modelChangedActivity($event)" class="form-control m-input" name="activity" required [(ngModel)]="pre_activity.sport_id"
+																 #activity="ngModel" (change)="selectdrop($event)">
+																	<option *ngFor="let sport of sports" [value]=sport.id>{{sport.name}}</option>
+																</select>
+															</div>
+														</div>
+														<div class="activity-form row">
+															<label class="col-lg-2 col-form-label">Type of Training *:</label>
+															<div class="col-lg-4">
+																<select required  (ngModelChange)="modelChangedActivity($event)" class="form-control m-input" name="type_of_training" [(ngModel)]="pre_activity.type_of_training"
+																 #type_of_training="ngModel">
+																	<option value="Strength">Strength</option>
+																	<option value="Endurance">Endurance</option>
+																	<option value="Light interval">Light interval</option>
+																	<option value="Hard interval">Hard interval</option>
+																</select>
+																<!-- <input (ngModelChange)="modelChangedActivity($event)" type="text" class="form-control m-input" placeholder="Type of Training"
+																 name="type_of_training" [(ngModel)]="pre_activity.type_of_training" #type_of_training="ngModel"> -->
+															</div>
+															<label class="col-lg-2 col-form-label">Location:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input (ngModelChange)="modelChangedActivity($event)" type="text" class="form-control m-input" placeholder="Location" name="location"
+																	 [(ngModel)]="pre_activity.location" #location="ngModel">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text">
+																			<i class="fa fa-map"></i>
+																		</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="activity-form row">
+															<label class="col-lg-2 col-form-label">Description:</label>
+															<div class="col-lg-8">
+																<div class="input-group">
+																	<textarea (ngModelChange)="modelChangedActivity($event)" class="form-control m-input" name="description" [(ngModel)]="pre_activity.description"
+																	 #description="ngModel" id="exampleTextarea" rows="3">
+																	</textarea>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<div class="m-form__section">
+														<div class="m-form__heading">
+															<h3 class="m-form__heading-title">
+																Weather Details
+															</h3>
+														</div>
+														<div class="activity-form row">
+															<label class="col-lg-2 col-form-label">Indoor/Outdoor *:</label>
+															<div class="col-lg-4">
+																<select required (ngModelChange)="modelChangedActivity($event)" class="form-control m-input" name="weather" [(ngModel)]="pre_activity.weather"
+																 #weather="ngModel">
+																	<option value="1">Indoor</option>
+																	<option value="2">Outdoor</option>
+																</select>
+															</div>
+															<label class="col-lg-2 col-form-label">Temperature *:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input required (ngModelChange)="modelChangedActivity($event)" type="text" class="form-control m-input" placeholder="Temp"
+																	 name="temperature" [(ngModel)]="pre_activity.temperature" #activity="ngModel">
+																	<div class="input-group-prepend">
+																		<span *ngIf="preferredUnitID == 1; else temp" class="input-group-text">
+																			&#8451;
+																		</span>
+																		<ng-template #temp class="input-group-text">
+																			&#8457;
+																		</ng-template>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+
+
+														<div class="activity-form  row">
+															<label class="col-lg-2 col-form-label">Water Temp *:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input (ngModelChange)="modelChangedActivity($event)" required type="text" class="form-control m-input" placeholder="Water Temp"
+																	 name="water_temperature" [disabled]="!swimming" [(ngModel)]="pre_activity.water_temperature" #water_temperature="ngModel">
+																	<div class="input-group-prepend">
+																		<span *ngIf="preferredUnitID == '1'; else waterTemp" class="input-group-text">&#8451;</span>
+																		<ng-template #waterTemp class="input-group-text">&#8457;</ng-template>
+																	</div>
+																</div>
+															</div>
+
+															<label class="col-lg-2 col-form-label">Humidity*:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input required (ngModelChange)="modelChangedActivity($event)" type="text" class="form-control m-input" placeholder="Humidity"
+																	 name="humidity" [(ngModel)]="pre_activity.humidity" #humidity="ngModel">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text">%</span>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="activity-form row">
+															<label class="col-lg-2 col-form-label">Wind Speed:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input (ngModelChange)="modelChangedActivity($event)" type="text" name="wind_speed" style="font-size: 14px" class="form-control m-input"
+																	 placeholder="Wind Speed" [(ngModel)]="pre_activity.wind_speed" #wind_speed="ngModel">
+																	<div class="input-group-prepend">
+																		<span *ngIf="preferredUnitID == '1'; else windSpeed" class="input-group-text">kph</span>
+																		<ng-template #windSpeed class="input-group-text">mph</ng-template>
+																	</div>
+																</div>
+															</div>
+															<label class="col-lg-2 col-form-label">Cloud Cover :</label>
+															<div class="col-lg-4">
+																<select *ngIf="pre_activity.weather==1 else cloudcover" [disabled]=true class="form-control m-input">
+
+																</select>
+																<ng-template #cloudcover>
+																	<select (ngModelChange)="modelChangedActivity($event)" class="form-control m-input" name="cloud" [(ngModel)]="pre_activity.cloud"
+																	 #cloud="ngModel">
+																		<option value="1">Clear Sky</option>
+																		<option value="2">Scattered Clouds</option>
+																		<option value="3">Light Clouds</option>
+																		<option value="4">Heavy Clouds</option>
+																	</select>
+																</ng-template>
+
+															</div>
+														</div>
+														<div class="activity-form row">
+															<label class="col-lg-2 col-form-label">WBGT:</label>
+															<div class="col-lg-4">
+																<div class="input-group">
+																	<input (ngModelChange)="modelChangedActivity($event)" type="text" name="wbgt" class="form-control m-input" placeholder="WBGT"
+																	 [(ngModel)]="pre_activity.wbgt" #wbgt="ngModel" />
+																	<div class="input-group-prepend">
+																		<span *ngIf="preferredUnitID == '1'; else wbgt" class="input-group-text">&#8451;</span>
+																		<ng-template #wbgt class="input-group-text">&#8457;</ng-template>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-12 col-lg-12 col-xl-12">
+																<div class="pull-right navButtons">
+																	<button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon" (click)="cancelActivity()">Cancel</button>
+																	<button type="button" class="btn btn-info m-btn m-btn--custom m-btn--icon pull-right" (click)="addActivity(preactivity)"
+																	 data-wizard-action="next">Go to athletes</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-1"></div>
+											</div>
+										</div>
+										<!--end: Form Wizard Step 1-->
+										<!--begin: Form Wizard Step 2-->
+										<div class="m-wizard__form-step" id="m_wizard_form_step_2">
+											<div class="row">
+												<div class="col-xl-1"></div>
+												<div class="col-xl-10">
+
+													<div class="form-group m-form__group">
+														<!--begin: Search Form -->
+														<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+															<div class="row align-items-center">
+																<div class="col-xl-9 order-2 order-xl-1">
+																	<div class="form-group m-form__group row align-items-center">
+																		<div class="col-md-12">
+
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!--end: Search Form -->
+
+
+
+
+														<table style="font-size:13px;margin-bottom:0px" class="table table-striped" [mfData]="data" #mffirst="mfDataTable" [(mfSortBy)]="sortBy"
+														 [(mfSortOrder)]="sortOrder" class="table m-table m-table--head-bg-success">
+															<thead>
+																<tr class="table_heading_color">
+																	<th style="width:8%">
+																		<input type="checkbox" id="AthleteSelectAll">
+																	</th>
+																	<th style="width:23%">
+																		<mfDefaultSorter by="first_name">
+																			<span id="table_heading_color">First Name</span>
+																		</mfDefaultSorter>
+																	</th>
+																	<th style="width:23%;padding-left: 0px;">
+																		<mfDefaultSorter by="last_name">
+																			<span id="table_heading_color">Last Name</span>
+																		</mfDefaultSorter>
+																	</th>
+																	<th style="width:23%;padding-left: 0px;">
+																		<mfDefaultSorter by="sport.sport_name">
+																			<span id="table_heading_color"> Primary Sport</span>
+																		</mfDefaultSorter>
+																	</th>
+																	<th style="width:23%">
+																		<mfDefaultSorter by="is_team_nl">
+																			<span id="table_heading_color">Team NL&nbsp;&nbsp;&nbsp;</span>
+																		</mfDefaultSorter>
+																	</th>
+
+																</tr>
+															</thead>
+															<tbody>
+																<tr *ngFor="let item of mffirst.data">
+
+																</tr>
+															</tbody>
+														</table>
+
+
+														<div style="max-height: 500px; overflow-y: scroll;overflow-x:scroll">
+															<table style="font-size:13px" class="table table-striped" [mfData]="data" #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder"
+															 class="table m-table m-table--head-bg-success">
+																<tbody>
+																	<tr *ngFor="let item of mf.data">
+																		<td style="width:8%">
+																			<input (change)="modelChangedAthletesList($event)" type="checkbox" class="chk" value={{item.id}} name="checkboxathelet">
+																		</td>
+																		<td style="width:23%"> {{item.first_name}}</td>
+																		<td style="width:23%">{{item.last_name}}</td>
+																		<td style="width:23%">{{item.sport.sport_name}}</td>
+																		<td style="height: 73px;width: 23%">
+																			<div *ngIf="item.is_team_nl; else athleteteam">
+																				<span>
+																					<img style="margin-left:10px;height:50px;" src="./assets/images/team_nl.jpg" />
+																				</span>
+																			</div>
+																			<ng-template #athleteteam>&nbsp;&nbsp;&nbsp;&nbsp;-</ng-template>
+																		</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+
+
+
+
+														<div class="row">
+															<div class="col-md-12 col-lg-12 col-xl-12">
+																<div class="pull-right navButtons">
+																	<button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon" data-wizard-action="prev">Back to activity</button>
+																	<button class="btn btn-info m-btn m-btn--custom m-btn--icon pull-right" (click)="addAthletes()" data-wizard-action="next">Go to pre</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-1"></div>
+											</div>
+										</div>
+										<!--end: Form Wizard Step 2-->
+										<!--begin: Form Wizard Step 3-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+										<div class="m-wizard__form-step" id="m_wizard_form_step_3">
+											<div class="row" *ngIf="!isLoading">
+												<!-- <div class="row"> -->
+												<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+												<div class="col-xl-2 col-md-2 col-lg-2 pre_act_athlete">
+													<div *ngFor="let activity of activities.success_activities;let i = index;">
+														<div appBackHighlight [attr.data-forid]="i" [ngClass]="{'blueBg': activity.id==currentActivityId}" [attr.data-id]="activity.id"
+														 [attr.data-athlete-id]="activity.athlete_id" [ngStyle]="{'backgroundColor': backgroundColors }" (click)="savePreActivity(activity.id, activity.athlete_id, i, $event)"
+														 class="m-widget3__user-img">
+															<div *ngIf="activity.profile_picture!=null; else defaultImg">
+																<img class="m-widget3__img" src="{{activity.profile_picture}}" alt="" />
+															</div>
+															<ng-template #defaultImg>
+																<img class="m-widget3__img" src="./assets/images/profile.png" alt="" />
+															</ng-template>
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-8 col-md-8 col-lg-8 pre_act">
+													<div *ngFor="let activity of activities.success_activities;let i = index;">
+
+														<div *ngIf="activity.id==currentActivityId">
+
+															<div class="pre_act_space">
+																<div class="row athlete-name">
+																	<div class="col-ls-12">
+																		<h3 class="athlete_title">{{activity.athlete_name}}</h3>
+																	</div>
+																</div>
+																<div class="row activity-details">
+
+																	<div class="col-lg-10 col-xl-10 col-offset-2">
+																		<div class="form-group m-form__group">
+																			<div class="row">
+																				<div class="col-lg-10">
+																					<p style="font-size:15px">
+																						<b>Acclimatized:</b> Have you been exercising for more than 3 days above 25C?</p>
+																				</div>
+																				<div class="col-lg-2">
+																					<span class="m-switch m-switch--icon m-switch--info">
+																						<label>
+																							<input (ngModelChange)="modelChanged($event)" type="checkbox" id="checkbox" (change)="acclimatizedSwitch($event)" [(ngModel)]="activity.acclimatized" name="acclimatized">
+																							<span></span>
+																						</label>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="col-lg-10 col-xl-10 col-offset-2">
+																		<div class="form-group m-form__group">
+																			<label for="exampleInputEmail1">
+																				Pre-exercise weight without clothes
+																			</label>
+																			<div class="input-group m-input-group">
+																				<input (ngModelChange)="modelChanged($event)" type="text" class="form-control m-input" tabindex="1" placeholder="Weight Without Clothes"
+																				 name="withoutclothe" [(ngModel)]="activity.weight_before_nude" #withoutclothe="ngModel">
+																				<div class="input-group-prepend">
+																					<span *ngIf="preferredUnitID == '1'; else prewithoutcloth" class="input-group-text">kg</span>
+																					<ng-template #prewithoutcloth class="input-group-text">lbs</ng-template>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-10 col-xl-10 col-offset-2">
+																		<div class="form-group m-form__group">
+																			<label for="exampleInputEmail1">
+																				Pre-exercise weight with clothes
+																			</label>
+																			<div class="input-group m-input-group">
+																				<input (ngModelChange)="modelChanged($event)" type="text" class="form-control m-input" tabindex="2" placeholder="Weight With Clothes"
+																				 name="withclothe" [(ngModel)]="activity.weight_before_cloths" #withclothe="ngModel">
+																				<div class="input-group-prepend">
+																					<span *ngIf="preferredUnitID == '1'; else prewithcloth" class="input-group-text">kg</span>
+																					<ng-template #prewithcloth class="input-group-text">lbs</ng-template>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-10 col-xl-10 col-offset-2">
+																		<div class="form-group m-form__group">
+																			<label for="exampleInputEmail1">
+																				Clothing
+																			</label>
+																			<div class="row">
+																				<div class="col-xl-4">
+																					<div class="clothing_selection">
+																						<input (ngModelChange)="modelChanged($event)" type="radio" name="clothing" [(ngModel)]="activity.cloth_type" #clothing="ngModel"
+																						 value="1" id="cb1" />
+																						<label class="imageLabel" tabindex="3" for="cb1">
+																							<img src="assets/images/cloth1.jpg" />
+																						</label>
+																					</div>
+																				</div>
+																				<div class="col-xl-4">
+																					<div class="clothing_selection">
+																						<input (ngModelChange)="modelChanged($event)" type="radio" name="clothing" [(ngModel)]="activity.cloth_type" #clothing="ngModel"
+																						 value="2" id="cb2" />
+																						<label class="imageLabel" tabindex="4" for="cb2">
+																							<img src="assets/images/cloth2.jpg" />
+																						</label>
+																					</div>
+																				</div>
+																				<div class="col-xl-4">
+																					<div class="clothing_selection">
+																						<input (ngModelChange)="modelChanged($event)" type="radio" name="clothing" [(ngModel)]="activity.cloth_type" #clothing="ngModel"
+																						 value="3" id="cb3" />
+																						<label class="imageLabel" tabindex="5" for="cb3">
+																							<img src="assets/images/cloth3.jpg" />
+																						</label>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="row">
+																				<div class="col-xl-4">
+																					<div class="clothing_selection">
+																						<input (ngModelChange)="modelChanged($event)" type="radio" name="clothing" [(ngModel)]="activity.cloth_type" #clothing="ngModel"
+																						 value="4" id="cb4" />
+																						<label class="imageLabel" tabindex="6" for="cb4">
+																							<img src="assets/images/cloth4.jpg" />
+																						</label>
+																					</div>
+																				</div>
+																				<div class="col-xl-4">
+																					<div class="clothing_selection">
+																						<input (ngModelChange)="modelChanged($event)" type="radio" name="clothing" [(ngModel)]="activity.cloth_type" #clothing="ngModel"
+																						 value="5" id="cb5" />
+																						<label class="imageLabel" tabindex="7" for="cb5">
+																							<img src="assets/images/cloth5.jpg" />
+																						</label>
+																					</div>
+																				</div>
+																				<div class="col-xl-4">
+																					<div class="clothing_selection">
+																						<input (ngModelChange)="modelChanged($event)" type="radio" name="clothing" [(ngModel)]="activity.cloth_type" #clothing="ngModel"
+																						 value="6" id="cb6" />
+																						<label class="imageLabel" tabindex="8" for="cb6">
+																							<img src="assets/images/cloth6.jpg" />
+																						</label>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="col-lg-10 col-xl-10 col-offset-2">
+																		<div class="form-group m-form__group">
+																			<label for="exampleInputEmail1">
+																				Description of Clothes
+																			</label>
+																			<textarea (ngModelChange)="modelChanged($event)" class="form-control m-input" name="cloth_description" tabindex="9" [(ngModel)]="activity.cloth_description"
+																			 #cloth_description="ngModel" id="exampleTextarea" rows="3"></textarea>
+																		</div>
+																	</div>
+
+																	<div class="col-lg-10 col-xl-10 col-offset-2">
+																		<div class="form-group m-form__group">
+																			<label for="exampleInputEmail1">
+																				Urine Specific Gravity
+																			</label>
+																			<div class="input-group m-input-group">
+																				<input (ngModelChange)="modelChanged($event)" type="number" class="form-control m-input" placeholder="Urine Specific Gravity"
+																				 name="urine_specific_gravity" [(ngModel)]="activity.urine_specific_gravity" #urine_specific_gravity="ngModel">
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 col-lg-12 col-xl-12">
+													<div class="pull-right navButtons">
+														<button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon" tabindex="11" data-wizard-action="prev">Back to athletes</button>
+														<button class="btn btn-info m-btn m-btn--custom m-btn--icon pull-right" tabindex="10" (click)="saveFinalPreActivity($event)"
+														 data-wizard-action="next">Go to post</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--end: Form Wizard Step 3-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+										<!--begin: Form Wizard Step 4-->
+										<div class="m-wizard__form-step" id="m_wizard_form_step_4">
+											<div class="row">
+												<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+												<div class="col-xl-2 col-md-2 col-lg-2 pre_act_athlete">
+													<div *ngFor="let activity of activities.success_activities;let i = index;">
+														<div appBackHighlight [attr.data-forid]="i" [attr.data-id]="activity.id" [attr.data-athlete-id]="activity.athlete_id" [ngStyle]="{'backgroundColor': backgroundColors }"
+														 [ngClass]="{'blueBg': activity.id==currentActivityId}" (click)="savePostActivity(activity.id, activity.athlete_id, i, $event)"
+														 class="m-widget3__user-img1">
+															<div *ngIf="activity.profile_picture!=null; else defaultImg">
+																<img class="m-widget3__img" src="{{activity.profile_picture}}" alt="" />
+															</div>
+															<ng-template #defaultImg>
+																<img class="m-widget3__img" src="./assets/images/profile.png" alt="" />
+															</ng-template>
+														</div>
+													</div>
+												</div>
+												<div class="col-xl-8 col-md-8 col-lg-8 pre_act">
+													<div *ngFor="let activity of activities.success_activities;let i = index;">
+														<div *ngIf="activity.id==currentActivityId">
+															<div class="pre_act_space">
+																<div class="row athlete-name">
+																	<div class="col-ls-12">
+																		<h3 class="athlete_title">{{activity.athlete_name}} </h3>
+																	</div>
+																</div>
+																<div class="row activity-details">
+																	<div class="col-lg-12 col-xs-12">
+																		<div class="row ">
+																			<div class="col-lg-10 col-xl-10">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Post-exercise weight without clothes
+																					</label>
+																					<div class="input-group m-input-group">
+																						<input (ngModelChange)="modelChangedPost($event)" type="text" class="form-control m-input" tabindex="1" placeholder="Weight Without Clothes"
+																						 name="postwithoutclothe" [(ngModel)]="activity.weight_after_nude" #postwithoutclothe="ngModel" aria-describedby="basic-addon1">
+																						<div class="input-group-prepend">
+																							<span *ngIf="preferredUnitID == '1'; else postwithoutcloth" class="input-group-text">kg</span>
+																							<ng-template #postwithoutcloth>
+																								<span class="input-group-text" style="background-color:beige;">lbs</span>
+																							</ng-template>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-lg-10 col-xl-10">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Post-exercise weight with clothes
+																					</label>
+																					<div class="input-group m-input-group">
+																						<input type="text" (ngModelChange)="modelChangedPost($event)" class="form-control m-input" tabindex="2" placeholder="Weight With Clothes"
+																						 name="postwithclothe" [(ngModel)]="activity.weight_after_cloths" #postwithclothe="ngModel" aria-describedby="basic-addon1">
+																						<div class="input-group-prepend">
+																							<span *ngIf="preferredUnitID == '1'; else postwithoutcloth" class="input-group-text">kg</span>
+																							<ng-template #postwithoutcloth class="input-group-text">lbs</ng-template>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-xl-5 col-lg-5 col-md-5">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Fluids
+																					</label>
+																					<div class="input-group m-input-group">
+																						<input (ngModelChange)="modelChangedPost($event)" type="text" class="form-control m-input" tabindex="3" placeholder="Fluids"
+																						 name="total_fluid" [(ngModel)]="activity.total_fluid" #total_fluid="ngModel" aria-describedby="basic-addon1">
+																						<div class="input-group-prepend">
+																							<span *ngIf="preferredUnitID == '1'; else fluid" class="input-group-text">ml</span>
+																							<ng-template #fluid class="input-group-text">oz</ng-template>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-5 col-lg-5 col-md-5">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Gels/Solid
+																					</label>
+																					<div class="input-group m-input-group">
+																						<input (ngModelChange)="modelChangedPost($event)" type="text" class="form-control m-input" placeholder="Gels in G" name="gels"
+																						 tabindex="4" [(ngModel)]="activity.gels_solid" #gels="ngModel" aria-describedby="basic-addon1">
+																						<div class="input-group-prepend">
+																							<span *ngIf="preferredUnitID == '1'; else gels" class="input-group-text">g</span>
+																							<ng-template #gels class="input-group-text">oz</ng-template>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-xl-5 col-lg-5 col-md-5">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Urination
+																					</label>
+																					<div class="input-group m-input-group">
+																						<input (ngModelChange)="modelChangedPost($event)" type="text" class="form-control m-input" placeholder="Urination in ML"
+																						 tabindex="5" name="urination" [(ngModel)]="activity.urination" #urination="ngModel" aria-describedby="basic-addon1">
+																						<div class="input-group-prepend">
+																							<span *ngIf="preferredUnitID == '1'; else urination" class="input-group-text">ml</span>
+																							<ng-template #urination class="input-group-text">oz</ng-template>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-5 col-lg-5 col-md-5">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Duration
+																					</label>
+																					<div class="input-group m-input-group">
+																						 <!-- <input (ngModelChange)="modelChangedPost($event)"  type="text" class="form-control m-input" placeholder="HH:MM:SS" tabindex="6"
+																						 name="duration" [(ngModel)]="activity.duration" #duration="ngModel" aria-describedby="basic-addon1">   -->
+																						 <input (ngModelChange)="modelChangedPost($event)" slotChar="HH:MM:SS" type="text" class="form-control m-input" placeholder="HH:MM:SS"
+																						 tabindex="6" name="duration" mask="00:00:00" [(ngModel)]="activity.duration" #duration="ngModel" aria-describedby="basic-addon1"> 
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-xl-5 col-lg-5 col-md-5">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Distance Covered
+																					</label>
+																					<div class="input-group m-input-group">
+																						<input (ngModelChange)="modelChangedPost($event)" type="text" class="form-control m-input" tabindex="7" placeholder="Distance Covered"
+																						 name="distance" [(ngModel)]="activity.distance" #distance="ngModel" aria-describedby="basic-addon1">
+																						<div class="input-group-prepend">
+																							<span *ngIf="preferredUnitID == '1'; else distance" class="input-group-text">km</span>
+																							<ng-template #distance class="input-group-text">mi</ng-template>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-5 col-lg-5 col-md-5">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Average Power
+																					</label>
+																					<div class="input-group m-input-group">
+																						<input (ngModelChange)="modelChangedPost($event)" type="text" class="form-control m-input" tabindex="8" placeholder="Avg Power in Watts"
+																						 name="average_power" [(ngModel)]="activity.average_power" #average_power="ngModel" aria-describedby="basic-addon1">
+																						<div class="input-group-prepend">
+																							<span class="input-group-text">
+																								Watts
+																							</span>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+
+																		<div class="row">
+																			<div class="col-xl-7 col-lg-7 col-md-7">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						External load/Average Pace Intensity
+																					</label>
+																					<div class="loading">
+																						<div class="load_selection">
+																							<input (ngModelChange)="modelChangedPost($event)" type="radio" name="external_load_RPE" [(ngModel)]="activity.external_load_average"
+																							 #external_load_RPE="ngModel" value="1" checked id="load1" />
+																							<label tabindex="9" for="load1">
+																								Low
+																							</label>
+																						</div>
+																						<div class="load_selection">
+																							<input (ngModelChange)="modelChangedPost($event)" type="radio" name="external_load_RPE" [(ngModel)]="activity.external_load_average"
+																							 #external_load_RPE="ngModel" value="2" id="load2" />
+																							<label tabindex="10" for="load2">Moderate</label>
+																						</div>
+																						<div class="load_selection">
+																							<input (ngModelChange)="modelChangedPost($event)" type="radio" name="external_load_RPE" [(ngModel)]="activity.external_load_average"
+																							 #external_load_RPE="ngModel" value="3" id="load3" />
+																							<label tabindex="11" for="load3">
+																								High
+																							</label>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-xl-4 col-lg-4 col-md-4 col-offset-4">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Internal load RPE
+																					</label>
+																					<select (ngModelChange)="modelChangedPost($event)" class="form-control m-input" tabindex="12" [(ngModel)]="activity.internal_load_RPE"
+																					 #internal_load_RPE="ngModel" name="internal_load_RPE">
+																						<option value="0">0</option>
+																						<option value="1">1</option>
+																						<option value="2">2</option>
+																						<option value="3">3</option>
+																						<option value="4">4</option>
+																						<option value="5">5</option>
+																						<option value="6">6</option>
+																						<option value="7">7</option>
+																						<option value="8">8</option>
+																						<option value="9">9</option>
+																						<option value="10">10</option>
+																					</select>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-xl-10 col-lg-10 col-md-10">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						% Active
+																					</label>
+																					<div class="row align-items-center">
+																						<div class="col-lg-2 activePercent">
+																							<!-- <input appTwoDigitDecimaNumber (ngModelChange)="modelChangedPost($event)" step=".1" type="text" class="form-control" name="active_precent" tabindex="13"
+																							 [(ngModel)]="activity.active_precent" #active_precent="ngModel" id="m_nouislider_1_input" placeholder="Active"
+																							/> -->
+																							<input appTwoDigitDecimaNumber (ngModelChange)="modelChangedPost($event)"  type="text" class="form-control" name="active_precent" 
+																							[(ngModel)]="activity.active_precent" #active_precent="ngModel" id="m_nouislider_1_input" placeholder="Active"
+																						   />
+																						</div>
+																						<div class="col-lg-9">
+																							<div id="m_nouislider_1" class="m-nouislider--drag-danger"></div>
+																						</div>
+																					</div>
+																					<div class="row">
+																						{{postactivity.active_precent}}
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-lg-10 col-xl-10">
+																				<div class="form-group m-form__group">
+																					<label for="exampleInputEmail1">
+																						Hydration Notes
+																					</label>
+																					<textarea (ngModelChange)="modelChangedPost($event)" name="hydration_notes" [(ngModel)]="activity.hydration_notes" tabindex="14"
+																					 #hydration_notes="ngModel" class="form-control m-input" id="exampleTextarea" rows="3"></textarea>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 col-lg-12 col-xl-12">
+													<div class="pull-right navButtons">
+														<button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon" tabindex="16" data-wizard-action="prev">Back to pre</button>
+														<button class="btn btn-info m-btn m-btn--custom m-btn--icon pull-right" tabindex="15" (click)="saveFinalPostActivity($event)"
+														 data-wizard-action="next">Create Report</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--end: Form Wizard Step 4-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+										<!--begin: Form Wizard Step 5-->
+										<div class="m-wizard__form-step" id="m_wizard_form_step_5">
+											<div class="row">
+												<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+												<div class="col-xl-2 col-md-2 col-lg-2 pre_act_athlete">
+													<div *ngFor="let activity of activities.success_activities;let i = index;">
+														<div appBackHighlight [attr.data-forid]="i" [attr.data-id]="activity.id" [attr.data-athlete-id]="activity.athlete_id" [ngStyle]="{'backgroundColor': backgroundColors }"
+														 [ngClass]="{'blueBg': activity.id==currentActivityId}" (click)="calculateSweatrate(activity.id, activity.athlete_id, i, $event)"
+														 class="m-widget3__user-img2">
+															<div *ngIf="activity.profile_picture!=null; else ImgReport">
+																<img class="m-widget3__img" src="{{activity.profile_picture}}" alt="" />
+															</div>
+															<ng-template #ImgReport>
+																<img class="m-widget3__img" src="./assets/images/profile.png" alt="" />
+															</ng-template>
+														</div>
+													</div>
+													<!-- <div *ngFor="let activity of activities.success_activities;let i = index;">
+														<div appBackHighlight [attr.data-forid]="i" [attr.data-id]="activity.id" [attr.data-athlete-id]="activity.athlete_id" [ngStyle]="{'backgroundColor': backgroundColors }" [ngClass]="{'blueBg': activity.id==currentActivityId}"
+														    (click)="savePostActivity(activity.id, activity.athlete_id, i, $event)" class="m-widget3__user-img1">
+															<img class="m-widget3__img" src="{{activity.profile_picture}}" alt="" />
+														</div>
+													</div> -->
+												</div>
+												<div class="col-xl-8 col-md-8 col-lg-8 pre_act" id="print-section">
+													<div *ngFor="let activity of activities.success_activities;let i = index;">
+														<div [hidden]="activity.id!=currentActivityId">
+															<div class="pre_act_space">
+																<div class="row athlete-name">
+																	<div class="col-ls-12">
+																		<h3 class="athlete_title"> {{activity.athlete_name}} </h3>
+																	</div>
+																</div>
+																<div class="row ">
+																	<div class="col-lg-12 col-xs-12">
+																		<div class="row dehydration_area">
+																			<div class="col-lg-10 col-xl-10 col-md-10">
+																				<div class="m-portlet">
+																					<div class="m-portlet__head">
+																						<div class="m-portlet__head-caption">
+																							<div class="m-portlet__head-title" id="reportgraph">
+																								<h3 class="dehyd">Dehydration</h3>
+																								<div class="meters" id="{{'power-gauge-'+i}}"></div>
+																								<div id="d">
+
+																								</div>
+																								<span *ngIf="this.outofRange">
+																									<div class="instruction">
+																										<div class="">
+																											<h5 *ngIf="activity.dehydration <0 ||activity.dehydration >5 else dehy" class="box" id="dehybox">
+																												<p class="dehydration-value">{{activity.dehydration | number:'.1-1'}}%</p>
+																											</h5>
+																											<ng-template #dehy>
+																												<h5 class="box" id="dehyboxrange">
+																													<p class="dehydration-value">{{activity.dehydration | number:'.1-1'}}%</p>
+																												</h5>
+																											</ng-template>
+																											<br/>
+																										</div>
+																										<br/>
+																									</div>
+																									<h4 *ngIf="activity.dehydration <0 ||activity.dehydration >5 else outRange" id="outofrange">Out of Range</h4>
+																									<ng-template #outRange>
+																										<h4>&nbsp;</h4>
+																									</ng-template>
+																								</span>
+																							</div>
+
+																						</div>
+																					</div>
+																				</div>
+
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1"></div>
+																		</div>
+
+																		<div class="row">
+																			<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+																				<div class="m-portlet meter">
+																					<div class="m-portlet__head">
+																						<div class="m-portlet__head-caption">
+																							<div class="row">
+																								<div class="col-md-8">
+																									<h4>Sweat Rate (L/H)</h4>
+																								</div>
+																								<div class="col-md-4">
+																									<div class="pull-right">
+																										<h3 class="box">
+																											{{activity.sweatrate | number:'.1-1'}} L/H
+																										</h3>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+																		</div>
+																		<div class="row">
+																			<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10">
+																				<div class="m-portlet meter">
+																					<div class="m-portlet__head">
+																						<div class="m-portlet__head-caption">
+																							<div class="row">
+																								<div class="col-md-8">
+																									<h4>Weight Loss</h4>
+																								</div>
+
+																								<div class="col-md-4">
+																									<div class="pull-right">
+																										<h3 class="box">
+																											{{activity.weight_loss | number:'.1-1'}} KG
+																										</h3>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-md-1 col-lg-1 col-xs-1 col-xl-1"></div>
+											</div>
+											<div class="row">
+												<div class="col-md-12 col-lg-12 col-xl-12">
+														<div class="pull-left navButtons" style="margin-left:25%">
+														<button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon"  data-wizard-action="prev">Back to post</button>	
+														</div>																																											
+													<div class="pull-right navButtons">
+															<!-- <button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon"  data-wizard-action="prev">Back to post</button>																														 -->
+														<button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon" (click)="send_report($event)">E-mail</button>
+														<button class="btn btn-info m-btn m-btn--custom m-btn--icon pull-right" (click)="print($event)">Print</button>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!--end: Form Wizard Step 5-->
+									</div>
+									<!--end: Form Body -->
+									<!--begin: Form Actions -->
+									<div class="m-portlet__foot m-portlet__foot--fit m--margin-top-40">
+										<div class="m-form__actions">
+											<div class="row">
+												<div class="col-lg-2"></div>
+												<div class="col-lg-4 m--align-left">
+													<!-- <a href="#" class="btn btn-secondary m-btn m-btn--custom m-btn--icon" data-wizard-action="prev">
+															<span>
+																<i class="la la-arrow-left"></i>
+																&nbsp;&nbsp;
+																<span>
+																	Back
+																</span>
+															</span>
+														</a> -->
+												</div>
+												<div class="col-lg-4 m--align-right">
+													<!-- <a href="#" class="btn btn-primary m-btn m-btn--custom m-btn--icon" data-wizard-action="submit">
+															<span>
+																<i class="la la-check"></i>
+																&nbsp;&nbsp;
+																<span>
+																	Submit
+																</span>
+															</span>
+														</a> -->
+													<!-- <a href="#" class="btn btn-warning m-btn m-btn--custom m-btn--icon">
+															<span>
+																<span>
+																	Save & Continue
+																</span>
+																&nbsp;&nbsp;
+																<i class="la la-arrow-right"></i>
+															</span>
+														</a> -->
+												</div>
+												<div class="col-lg-2"></div>
+											</div>
+										</div>
+									</div>
+									<!--end: Form Actions -->
+								</form>
+							</div>
+							<!--end: Form Wizard Form-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,25 @@
+.navbar {
+    margin-bottom: 0px;
+}
+.dropdown-menu {
+    z-index: 100;
+    margin-top: 10px;
+    margin-bottom: -96px;
+}
+.profileImage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+}
+.userName{
+    margin: 15px 0px 0px 15px;
+}
+.subMenu{
+    padding: 0px;
+}
+.userName{
+    z-index: 100;
+}
+.col-md-12.col-lg-12.navbar-default-header {
+    background: #e85e0f;
+}

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 col-lg-12 navbar-default-header">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <a href="/" title="FUEL the CORE" class='navbar-brand'>
+                        <img src="assets/images/SRC_logo.png" alt="Sweatrate" style="width: 339px;margin-top: -8px;" />
+                    </a>
+                </div>
+                <div id="navbar">
+                    <div class="row">
+                        <div class="col-ls-3">
+                            <img src="{{profileImage ? profileImage : '/assets/images/profile.png'}}" class="profileImage" alt="">
+                        </div>
+                        <div class="col-ls-9 userName">
+                            <ul class="nav navbar-nav pull-right">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        {{currentUserName}}
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li class="subMenu">
+                                            <a routerLink="/update-user">Profile</a>
+                                        </li>
+                                        <li class="subMenu">
+                                            <a routerLink="/logout">Log out</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

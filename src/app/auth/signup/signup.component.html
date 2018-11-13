@@ -1,0 +1,75 @@
+
+<div class="loginBG">
+    <div class="text-center">
+        <a href="http://fuelthecure.net" title="FUEL the CURE">
+            <img src="assets/images/SRC_logo.png" alt="Sweatrate" class="loginImage">
+        </a>
+    </div>
+    <div class="container">
+        <div class="signup">
+            <div class="login-screen">
+                <div class="app-title">
+                    <h2>Sign Up</h2>
+                </div>
+                <div class="login-form">
+                    <form (ngSubmit)="signup(signupform)" [formGroup]="signupform" class="m-login__form m-form">
+                        <ng-template #alertSignin></ng-template>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group m-form__group">
+                                                <input type="text" formControlName="firstname" class="form-control m-input" placeholder="First Name" name="firstname" [ngClass]="{ 'is-invalid': submitted && f.firstname.errors }"
+                                                />
+                                                <div *ngIf="submitted && f.firstname.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.firstname.errors.required">First Name is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group m-form__group">
+                                                <input type="text" formControlName="lastname" class="form-control m-input" placeholder="Last Name" name="lastname" [ngClass]="{ 'is-invalid': submitted && f.lastname.errors }"
+                                                    autocomplete="off" />
+                                                <div *ngIf="submitted && f.lastname.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.lastname.errors.required">Last Name is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group m-form__group">
+                                                <input type="password" formControlName="password" class="form-control m-input" placeholder="Enter Your Password" name="password"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" autocomplete="off"
+                                                />
+                                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.password.errors.required">Password is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group m-form__group">
+                                                <input type="password" formControlName="confirmpassword" class="form-control m-input" placeholder="Confirm Password" name="confirmpassword"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.confirmpassword.errors }" autocomplete="off"
+                                                />
+                                                <div *ngIf="submitted && f.confirmpassword.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.confirmpassword.errors.required">Confirm Password is required</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-login__form-action">
+                            <button [disabled]="loading" [ngClass]="{'m-loader m-loader--right m-loader--light': loading}" id="signup" class="btn btn-primary m-btn m-btn--pill m-btn--custom m-btn--air pull-right">
+                                Sign Up
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

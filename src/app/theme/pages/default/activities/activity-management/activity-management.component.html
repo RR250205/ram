@@ -1,0 +1,57 @@
+<div class="container-fluid dashboard">
+    <div class="row">
+        <div class="col-md-12 add-widget text-right">
+            <h2 class="title pull-left">
+                <i class="fa fa-users"></i> List of Activities</h2>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- END: Subheader -->
+            <div class="m-content">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__body">
+                        <!--begin: Search Form -->
+                        <div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+                            <div class="row align-items-center">
+                                <div class="col-xl-9 order-2 order-xl-1">
+                                    <div class="form-group m-form__group row align-items-center">
+                                        <div class="col-md-12">
+                                            <!-- <div class="m-input-icon m-input-icon--left">
+                                                <input type="text" class="form-control m-input" placeholder="Search..." id="generalSearch">
+                                                <span class="m-input-icon__icon m-input-icon__icon--left">
+                                                    <span>
+                                                        <i class="la la-search"></i>
+                                                    </span>
+                                                </span>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 order-1 order-xl-2 m--align-right">
+                                    <div>
+                                        <a class="btn btn-info first" (click)="onAthletes()" >
+                                            <i class="fa fa-th-large"></i> New Activity</a>
+                                        <div class="m-separator m-separator--dashed d-xl-none"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end: Search Form -->
+                        <!--begin: Datatable -->
+                        <div class="m_datatable" id="ajax_data1"></div>
+                        
+                        <!-- <div class="action_btns">
+                            <button class="btn btn-danger">Delete <i class="fa fa-trash"></i></button>
+                            <button class="btn btn-warning">Deactivate <i class="fa fa-refresh"></i></button>
+                            <button class="btn btn-success">Activate <i class="fa fa-check"></i></button>
+                        </div> -->
+                        <!--end: Datatable -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

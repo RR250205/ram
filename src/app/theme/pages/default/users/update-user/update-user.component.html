@@ -1,0 +1,192 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 add-widget text-right">
+            <h2 class="title pull-left ml20">
+                <i class="fa fa-user"></i> User Profile</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 col-xl-12">
+            <!-- END: Subheader -->
+            <div class="m-content">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__body">
+                        <div class="login-form">
+                            <form id="m_form_1" (ngSubmit)="updateUser(updateUserform)" #updateUserform="ngForm" class="m-form m-form--fit m-form--label-align-right">
+                                <div class="m-portlet__body">
+                                            <div class="m-card-profile">
+                                                    <div class="m-card-profile__title m--hide">
+                                                        <!-- Your Profile -->
+                                                    </div>
+                                                    <div class="m-card-profile__pic">
+                                                        <div *ngIf="model.profile_picture!=undefined" class="m-card-profile__pic-wrapper" style="border:0px">	
+                                                            <img src="{{model.profile_picture ? model.profile_picture : '/assets/images/profile.png'}}" alt="{{model.first_name}}" style="border-radius:7px">
+                                                        </div>
+                                                       
+                                                    </div>
+                                                </div>
+                                            <!-- <div class="form-group m-form__group row">
+                                                    <label class="col-lg-2 col-form-label">
+                                                      
+                                                    </label>
+                                                    <div class="col-lg-4">
+                                                            <img src="{{model.profile_picture}}" class="profileImage" alt="" style="border-radius:0px">
+                                                    </div>
+                                                    <div class="col-lg-4">
+                                                    </div>
+                                                </div> -->
+
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Name *:
+                                        </label>
+                                        <div class="col-lg-4">
+                                            <input required type="text" class="form-control m-input" placeholder="First Name" name="first_name" [(ngModel)]="model.first_name">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control m-input" placeholder="Last Name" name="last_name" [(ngModel)]="model.last_name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Email
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <div class="m-input-icon m-input-icon--right">
+                                                <input type="email" disabled class="form-control m-input" placeholder="Email Address" name="email" [(ngModel)]="model.email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Gender:
+                                        </label>
+                                        <div class="col-lg-3">
+                                            <div class="m-radio-inline">
+                                                <label class="m-radio m-radio--solid">
+                                                    <input type="radio" name="gender" checked [(ngModel)]="model.gender" value="1"> Male
+                                                    <span></span>
+                                                </label>
+                                                <label class="m-radio m-radio--solid">
+                                                    <input type="radio" name="gender" [(ngModel)]="model.gender" value="2"> Female
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <label class="col-lg-2 col-form-label">
+                                            DOB:
+                                        </label>
+                                        <div class="col-lg-3">
+                                            <input class="form-control m-input" type="date" name="date_of_birth" id="example-date-input" [(ngModel)]="model.date_of_birth">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Contact *:
+                                        </label>
+                                        <div class="col-lg-4">
+                                            <input required type="text" class="form-control m-input" placeholder="Mobile Number" name="cell_number" [(ngModel)]="model.cell_number">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input type="text" class="form-control m-input" placeholder="Phone Number" name="work_place_phone_number" [(ngModel)]="model.work_place_phone_number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Prefered Units:
+                                        </label>
+                                        <div class="col-lg-3">
+                                            <div class="m-radio-inline">
+                                                    <label class="m-radio m-radio--solid">
+                                                        <input type="radio" name="unit_id" checked [(ngModel)]="model.unit_id" value="1"> Metric
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="m-radio m-radio--solid">
+                                                        <input type="radio" name="unit_id" [(ngModel)]="model.unit_id" value="2"> Imperial
+                                                        <span></span>
+                                                    </label>
+                                            </div>
+                                        </div>
+                                        <!-- <label class="col-lg-2 col-form-label">
+                                            Prefered Units:
+                                        </label>
+                                        <div class="col-lg-4">
+                                            <div class="loading">
+                                                <div class="load_selection">
+                                                    <input type="radio" name="preferedunits" [(ngModel)]="model.preferedunits" #preferedunits="ngModel" value="1" id="load1" />
+                                                    <label for="load1">
+                                                        Imperial
+                                                    </label>
+                                                </div>
+                                                <div class="load_selection">
+                                                    <input type="radio" name="preferedunits" [(ngModel)]="model.preferedunits" #preferedunits="ngModel" value="2" id="load2" />
+                                                    <label for="load2">Metric</label>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Address (Optional):
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <div class="input-group">
+                                                <textarea class="form-control m-input" id="exampleTextarea" name="address" rows="3" [(ngModel)]="model.address"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Profile Picture:
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <input type="file" id="imageCrop" name="image" (change)="fileChangeEvent($event)" />
+                                            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4/ 3" format="jpeg" (imageCropped)="imageCropped($event)"></image-cropper>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Favorite Athlete:
+                                        </label>
+                                        <div class="col-lg-8 col-md-9 col-sm-12">
+                                            <select class="form-control m-select2" id="m_select2_3" name="athletesList" multiple="multiple" [(ngModel)]="model.athletesList">
+                                                <optgroup selected>
+                                                    <option *ngFor="let favourite of favourites">
+                                                        {{favourite}}
+                                                    </option>
+                                                </optgroup>
+                                                <optgroup label="List of Athletes">
+                                                    <option [ngValue]="athlete" *ngFor="let athlete of athletes">
+                                                        {{athlete}}
+                                                    </option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+                                    <div class="m-form__actions m-form__actions--solid">
+                                        <div class="row">
+                                            <div class="col-lg-8"></div>
+                                            <div class="col-lg-4">
+                                                <button (click)="cancelUser()" class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon">
+                                                    Cancel <i class="fa fa-times"></i>
+                                                </button>
+                                                <button type="submit" id="updateUser" class="btn btn-info">
+                                                    Update User
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--end::Form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

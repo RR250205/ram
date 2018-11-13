@@ -1,0 +1,60 @@
+
+    <div class="inviteUser">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="row inviteUserBG">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <h2 class="text-center inviteUserTitle">Sport Mangement</h2>
+                                <div class="login-form">
+                                    <form (ngSubmit)="editSport(i)" #i="ngForm" action="" >
+                                        <div class="form-group m-form__group">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="pad10">Sport Name</label>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <input 
+                                                    type="text"
+                                                    name="sport_name"
+                                                    class="form-control m-input"
+                                                    [(ngModel)]="model.sport_name"
+                                                    #sport_name="ngModel"
+                                                    placeholder="Enter Sport">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group m-form__group">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label class="pad10">Description</label>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <input 
+                                                    type="text"
+                                                    name="description"
+                                                    class="form-control m-input"
+                                                    [(ngModel)]="model.description"
+                                                    #description = "ngModel"
+                                                    placeholder="Enter Description">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                                <button class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon">Cancel
+                                                    <i class="fa fa-football"></i>
+                                                </button>
+                                            <button class="pull-right btn btn-info">Update Sport
+                                                <i class="fa fa-football"></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

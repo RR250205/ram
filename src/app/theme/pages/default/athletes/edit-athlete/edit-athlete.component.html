@@ -1,0 +1,189 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12 add-widget text-right">
+            <h2 class="title pull-left ml20">
+                <i class="fa fa-users"></i> Edit Athlete</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 col-xl-12">
+            <!-- END: Subheader -->
+            <div class="m-content">
+                <div class="m-portlet m-portlet--mobile">
+                    <div class="m-portlet__body">
+                        <div class="login-form">
+                            <form novalidate id="m_form_1" (ngSubmit)="editAthlete(editAthleteform)" #editAthleteform="ngForm" class="m-form m-form--fit m-form--label-align-right">
+                                <div class="m-portlet__body">
+                                    <div class="m-card-profile">
+                                                <div class="m-card-profile__title m--hide">
+                                                </div>
+                                                <div class="m-card-profile__pic">
+                                                    <div   class="m-card-profile__pic-wrapper" style="border:0px">	
+                                                        <img src="{{Athlete.profile_picture ? Athlete.profile_picture : '/assets/images/profile.png'}}" alt="{{Athlete.first_name}}" style="border-radius:7px">
+                                                    </div>
+                                            
+                                             </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Name:
+                                        </label>
+                                        <div class="col-lg-4">
+                                            <input required type="text" class="form-control m-input" placeholder="First Name" name="first_name" [(ngModel)]="Athlete.first_name" #firstname="ngModel">
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <input required type="text" class="form-control m-input" placeholder="Last Name" name="last_name" [(ngModel)]="Athlete.last_name" #lastname="ngModel">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Report e-mail:
+                                        </label>
+                                        <div class="col-lg-8">
+                                            <div class="m-input-icon m-input-icon--right">
+                                                <input required type="email" class="form-control m-input" placeholder="Athlete Email Address" name="email"  [(ngModel)]="Athlete.email"
+                                                    #email="ngModel">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Primary Sport:
+                                        </label>
+                                        <div class="col-lg-3">
+                                            <select class="form-control m-input" id="primarysports" name="sport_id" [(ngModel)]="Athlete.sport_id">
+                                                <option *ngFor="let sport of sports" value={{sport.id}}>{{sport.name}}</option>
+                                            </select>
+                                        </div>
+                                        <label class="col-lg-2 col-form-label">
+                                            Birth Date:
+                                        </label>
+                                        <div class="col-lg-3">
+                                            <input required class="form-control m-input" type="date" name="date_of_birth" [(ngModel)]="Athlete.date_of_birth" #date_of_birth="ngModel">
+                                        </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                        <label class="col-lg-2 col-form-label">
+                                            Gender:
+                                        </label>
+                                        <div class="col-lg-3">
+                                            <div class="m-radio-inline">
+                                                    <label class="m-radio m-radio--solid">
+                                                 <input type="radio" name="gender" [(ngModel)]="Athlete.gender" [value]="1"> Male
+                                                    <span></span>
+                                                    </label>
+                                                <label class="m-radio m-radio--solid">
+                                                    <input type="radio" name="gender" [(ngModel)]="Athlete.gender" [value]="2"> Female
+                                                    <span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <label class="col-lg-2 col-form-label">
+                                            Height:
+                                        </label>
+                                        <div class="col-lg-3">
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control m-input" name="height" [(ngModel)]="Athlete.height" #height="ngModel" placeholder="Height"
+                                                        aria-describedby="basic-addon2">
+                                                        <div class="input-group-prepend">
+                                                                <span *ngIf="preferredUnitID == '1'; else height" class="input-group-text">cm</span>
+                                                                <ng-template #height > <span class="input-group-text">inch</span></ng-template>
+                                                            </div>
+                                                    <!-- <div class="input-group-append">
+                                                        <span class="input-group-text">
+                                                           cm
+                                                        </span>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                            <label class="col-lg-2 col-form-label">
+                                                    Team NL:
+                                                </label>
+                                                <div class="col-lg-3 pull-right">
+                                                    <div class="m-radio-inline">
+                                                        <label class="m-radio m-radio--solid">
+                                                            <input type="radio" name="is_team_nl" [(ngModel)]="Athlete.is_team_nl" [value]="true"> Yes
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="m-radio m-radio--solid">
+                                                            <input type="radio" name="is_team_nl" [(ngModel)]="Athlete.is_team_nl" [value]="false"> No
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+        
+                                            <label class="col-lg-2 col-form-label">
+                                                Athlete Level:
+                                            </label>
+                                            <div class="col-lg-3">
+                                                <select class="form-control m-input" id="levelofathletes" name="level_of_athlete" [(ngModel)]="Athlete.level_of_athlete" #level_of_athlete="ngModel">
+                                                    <option value="Olympic">Olympic</option>
+                                                    <option value="International">International</option>
+                                                    <option value="National">National</option>
+                                                    <option value="Regional">Regional</option>
+                                                    <option value="Recreational">Recreational</option>
+                                                </select>
+                                            </div>                                  
+                                    </div>
+                                    <div class="form-group m-form__group row">
+                                            <label class="col-lg-2 col-form-label">
+                                                    Profile Picture
+                                                </label>
+                                                <div class="col-lg-3 pull-right">
+                                                        <input type="file" id="imageCrop" name="profile_picture" [(ngModel)]="Athlete.profile_picture" (change)="fileChangeEvent($event)" />
+                                                        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4/ 3" format="jpeg" (imageCropped)="imageCropped($event)"></image-cropper>
+                                                </div>
+        
+                                                <label class="col-lg-2 col-form-label">
+                                                        Ethnicity
+                                                </label>
+                                                <div class="col-lg-3">
+                                                    <select class="form-control m-input"  name="ethnicity" [(ngModel)]="Athlete.ethnicity" #level_of_athlete="ngModel">
+                                                        <option value="Caucasian">Caucasian</option>
+                                                        <option value="Asian">Asian</option>
+                                                        <option value="Latin American">Latin American</option>
+                                                        <option value="Hindu">Hindu</option>
+                                                        <option value="Turkish">Turkish</option>
+                                                        <option value="North African">North African</option>
+                                                        <option value="Other African">Other African</option>
+                                                        <option value="Other / Mixed Origin">Other / Mixed Origin</option>
+                                                    </select>
+                                                </div>                        
+                                    </div>
+                                    <!-- <div class="form-group m-form__group row">
+                                        <label class="col-form-label col-lg-3 col-sm-12">
+                                            Profile Picture
+                                        </label>
+                                        <div class="col-lg-4 col-md-5 col-sm-12">
+                                            <input type="file" id="imageCrop" name="profile_picture" [(ngModel)]="Athlete.profile_picture" (change)="fileChangeEvent($event)" />
+                                            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4/ 3" format="jpeg" (imageCropped)="imageCropped($event)"></image-cropper>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+                                    <div class="m-form__actions m-form__actions--solid">
+                                        <div class="row">
+                                            <div class="col-lg-8"></div>
+                                            <div class="col-lg-4">
+                                                <button (click)="cancelAthlete()" class="buttonGaps btn btn-secondary m-btn m-btn--custom m-btn--icon">
+                                                    Cancel <i class="fa fa-times"></i>
+                                                </button>
+                                                <button type="submit" [disabled]="loading" id="addAthlete" class="btn btn-info">
+                                                    Update Athlete
+                                                    <i class="fa fa-check"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--end::Form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

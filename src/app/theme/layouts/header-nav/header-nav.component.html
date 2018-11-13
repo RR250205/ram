@@ -1,0 +1,62 @@
+<div id="head">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div>
+					<ul class="header-link">
+						<li class="headerLi">
+							<a routerLink='/index'>
+								<i class="fa fa-th"></i> Dashboard</a>
+						</li>
+						<li *ngIf="userRole == 'true'; else normalUser" class="headerLi">
+							<a (click)="onUser()">
+								<i class="fa fa-users"></i> Users</a>
+						</li>
+						<ng-template #normalUser>
+							<li class="headerLi">
+								<a (click)="onAthlete()">
+								</a>
+							</li>
+						</ng-template>
+						<li class="headerLi">
+							<a (click)="onAthlete()">
+								<i class="fa fa-user-circle"></i> Athletes</a>
+						</li>
+						<li class="headerLi">
+							<a (click)="onActivity()">
+								<i class="fa fa-list"></i> Activities</a>
+						</li>
+						<li class="headerLi">	
+								<ul>
+										<li class="dropdown">
+											<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+											 <i class="fa fa-bar-chart"></i> Reports
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu reports-menu" role="menu">
+												<li class="subMenu">
+													<a routerLink="/reports-activity">Activities&nbsp;&nbsp;&nbsp;&nbsp;</a>
+												</li>
+												<li class="subMenu">
+													<a routerLink="/reports-sweatrate">Sweat Rate</a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+		
+
+
+							<!-- <a (click)="onReport()">
+								<i class="fa fa-bar-chart"></i> Reports</a> -->
+						</li>
+						<li class="headerLi">
+							<a (click)="onSport()">
+								<i class="fa fa-bicycle"></i> Sports</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
